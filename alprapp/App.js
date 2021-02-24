@@ -12,6 +12,7 @@ import {
 import { Camera } from "expo-camera";
 import { Button,TextInput } from "react-native-paper";
 import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions';
 const CameraModule = (props) => {
    const [cameraRef, setCameraRef] = useState(null);
    const [type, setType] = useState(Camera.Constants.Type.back);
@@ -122,12 +123,15 @@ export default function ImagePickerExample() {
   const [hasPermission, setHasPermission] = useState(null);
  useEffect(() => {
     (async () => {
-      if (Platform.OS !== 'web') {
-        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if (status !== 'granted') {
-          alert('Sorry, we need camera roll permissions to make this work!');
-        }
+       if (Platform.OS === 'ios') {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      if (status !== 'granted') {
+        alert('Sorry, we need camera roll permissions to make this work!');
       }
+    }
+    // Camera Permission
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({ hasPermission: status === 'granted' });
     })();
   }, []);
    const pickImage = async () => {
@@ -213,7 +217,7 @@ return (
         </Text>
       <Picker
         selectedValue={selectedValue}
-        style={{ height: 50, width: 150 }}
+        style={{ height: 50, width: 200 }}
         onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
       >
         <Picker.Item label="Select" value="Select" />
