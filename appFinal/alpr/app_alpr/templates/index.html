@@ -17,7 +17,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <header class ="header1 " style="background: #04AA6D; color: white;">
-    <h3 class="header-text" style="width: 100%;"><center>Automatic License Plate Recognition using YOLO</center></h3>
+    <h3 class="header-text" style="width: 100%;"><center>Automatic License Plate Recognition</center></h3>
     </header>
 
 
@@ -26,48 +26,39 @@
       <div class = "row1">
           {% comment %} <div class="left-space"> {% endcomment %}
   <form method="POST" enctype="multipart/form-data">{% csrf_token %}
-  <label class="labla" style ="background: #04AA6D; color: white;">
+  <label class="labla" style ="background: #04AA6D; color: white;">Capture Image/Choose file
     <input type="file" size="60" name = "img">
     </label> 
-          <button id="myBtn" type="submit" style="background: #04AA6D; color: white;">Process File</button>
+    <select name="offence">
+      <option value="0">Select Offence</option>
+      <option value="Overspeeding">Overspeeding</option>
+      <option value="Standing beyond zebra crossing">Standing beyond zebra crossing</option>
+      <option value="Not wearing seat belt">Not wearing seat belt</option>
+      <option value="License missing">License missing</option>
+      <option value="RC invalid/missing">RC invalid/missing</option>
+      <option value="Insurance invalid/missing">Insurance invalid/missing</option>
+      <option value="PUC invalid/missing">PUC invalid/missing</option>
+      <option value="Breaking Signal">Breaking Signal</option>
+      <option value="Drink and Drive">Drink and Drive</option>
+      
+    </select>
+          <button id="myBtn" type="submit" style="background: #04AA6D; color: white;">Submit</button>
 </form>
 </div>
 
- <div class= "row" style="margin-top: 100px;">
+<!-- <div class= "row" style="margin-top: 100px;">
           <div class="column">
     {% if up %}
     <h4 style="color: black; margin-left: 160px;">Input Image</h4>
     <img src="{{up}}" style="width: 400px;  border: 2px solid black;">
     {% endif %}
   </div>
-  {% comment %} <div class="column">
-    {% if pred %}
-           <h4 style="color: black; margin-left: 120px; ">Cropped Image</h4>
-    <img src="{{pred}}" style="width: 150px; margin-left: 110px; margin-top: 80px; border: 2px solid black;">
-    {% endif %}
-  </div>
-  <div class="column">
-    {% if preproc %}
-  <h4 style="color: black; margin-left: 40px;">Preprocessed Image</h4>
-    <img src="{{preproc}}" style="width: 150px; margin-left: 50px; margin-top: 80px; border: 2px solid black;">
-    {% endif %}
-  </div> {% endcomment %}
-
-        <div class = "column">
-          {% if no %}
-            <h4 style="color: black; margin-left: 130px;">Output text</h4>
-          <textarea id="textar" name="textar" rows="7" cols="30" style="color: black; font-size: 20px;">
-      {{no}}
-  </textarea>
-  {% endif %}
-        </div>
-        </div>
            
 
          
   
 
-           <!--h4 style="color: black; margin-left: 60px; ">Cropped Image</h4>
+      <h4 style="color: black; margin-left: 60px; ">Cropped Image</h4>
     <svg class= "rectangle" width="250" height="300">
       <rect width="250" height="300" 
   style="fill:rgba(255,255,255,0);stroke-width:5;stroke:rgb(0,0,0)" />
@@ -77,36 +68,29 @@ Sorry, your browser does not support inline SVG.
 
          <h4 style="color: black; margin-left: 40px;">Preprocessed Image</h4-->
     <svg class= "rectangle">
-      <rect 
-  style="fill:rgba(255,255,255,0);stroke-width:5;stroke:rgb(0,0,0)" />
-Sorry, your browser does not support inline SVG.
+     <!--<rect 
+  style="fill:rgba(255,255,255,0);stroke-width:5;stroke:rgb(0,0,0)">
+    </rect>-->
+    {% if up %}
+    <image href="{{up}}" style="width: 100%; border: 2px solid black;" preserveAspectRatio="none">
+    {% endif %}
 </svg>
-  
+
 
         
     <h4 class="heading heading1">Owner Details</h4>
-    <textarea id="textar" name="textar" >
-  </textarea>
-         <div class="custom-select">
-  <select>
-    <option value="0">Select Offence</option>
-    <option value="1">Overspeeding</option>
-    <option value="2">Standing beyond zebra crossing</option>
-    <option value="3">Not wearing seat belt</option>
-    <option value="4">License missing </option>
-    <option value="5">RC invalid/missing</option>
-    <option value="6">Insurance invalid/missing</option>
-    <option value="7">PUC invalid/missing</option>
-    <option value="8">Vehicle Fitness not renewed</option>
-    <option value="9">Non obeyance of Traffic Signal</option>
-    <option value="10">Not wearing Seat Belt</option>
-    <option value="11">Drink and Drive</option>
     
-  </select>
+  <textarea id="textar" name="textar" rows="7" cols="30" style="color: black; font-size: 20px;">
+  {% if no %}
+    {{no}}
+    Name:{{name}}
+    Email:{{email}}
+    Offence:{{offence}}
+    Email sent!
+ {% endif %}
+</textarea>
+         <div class="custom-select">
 </div> 
-          <div class="email">
-        <button id="myBtn"  type="button" style=" background: #04AA6D; color: white; margin-bottom: 30px;">Send Email</button>
-          </div>
           
     </div>
     

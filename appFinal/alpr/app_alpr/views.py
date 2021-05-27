@@ -7,6 +7,7 @@ from django.conf import settings
 from django.forms import inlineformset_factory
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.core.mail import send_mail
 
 from PIL import Image
 from .preproc import preproc
@@ -78,24 +79,31 @@ class Index(APIView):
         preproc(src_folder=settings.PRED_ROOT, dest_folder=settings.PREPROC_ROOT) #preprocess output
 
         no = ocr(src_folder=settings.PREPROC_ROOT)
-        context = {'up':os.path.join(settings.IMAGE_URL,'img.'+str(ext)),
-                    'pred':os.path.join(settings.PRED_URL,"pred.png"),
-                    'preproc':os.path.join(settings.PREPROC_URL,"preproc.png"),
-                    'no':no}
-        #print("This is working")
-        #print(type(no))
         
-        q=Appdata.objects.filter(vehicleNumber = "MH12QF0598") #replace with 'no'
+        q=Appdata.objects.filter(vehicleNumber = no.strip()) #replace with 'no'
         print(q)
         if not q:
            print("no element found in dataset")
         else:
             print(q[0].name)
             print(q[0].email)
+        offence = request.POST['offence']
+        print(offence)
 
         # print("this is working")
         # print(type(q))
         # print(q)
+        context = {'up':os.path.join(settings.IMAGE_URL,'img.'+str(ext)),
+            'no':no,'name':q[0].name, 'email':q[0].email,'offence':offence}
+        
+
+        send_mail(
+            'Traffic offence',
+            'Booked for '+str(offence),
+            'kmirchandani26@gmail.com',
+            [str(q[0].email).strip()],
+            fail_silently=False
+        )
 
         return render(request, self.template_name, context)
     
