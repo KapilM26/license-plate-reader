@@ -1,12 +1,14 @@
-{% load static %}
+{%load static%}
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ALPR</title>
+  <title>ALPR WEB APP</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href={% static "css/theme.css" %}>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
@@ -14,30 +16,31 @@
   </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-<header class ="header1 container" style="background: #191970; color: white; width: 100%;">
-    <h3><center>Automatic License Plate Recognition </center></h3>
+<header class ="header1 " style="background: #04AA6D; color: white;">
+    <h3 class="header-text" style="width: 100%;"><center>Automatic License Plate Recognition using YOLO</center></h3>
     </header>
 
 
 <div id="section1" class="container">
-      <!--div class = "row" style="margin-left: 200px; margin-top: 50px;"></div-->
-<form method="POST" enctype="multipart/form-data">{% csrf_token %}
-  <label>
-    <input type="file" size="60" name="img">
-    </label> 
-  <button id="myBtn" style="margin-left: 500px;" type="submit">Process File</button>
-</form>
-
-
-    <div class= "row" style="margin-top: 100px;">
  
-  <div class="column">
+      <div class = "row1">
+          {% comment %} <div class="left-space"> {% endcomment %}
+  <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+  <label class="labla" style ="background: #04AA6D; color: white;">
+    <input type="file" size="60" name = "img">
+    </label> 
+          <button id="myBtn" type="submit" style="background: #04AA6D; color: white;">Process File</button>
+</form>
+</div>
+
+ <div class= "row" style="margin-top: 100px;">
+          <div class="column">
     {% if up %}
     <h4 style="color: black; margin-left: 160px;">Input Image</h4>
     <img src="{{up}}" style="width: 400px;  border: 2px solid black;">
     {% endif %}
   </div>
-  <div class="column">
+  {% comment %} <div class="column">
     {% if pred %}
            <h4 style="color: black; margin-left: 120px; ">Cropped Image</h4>
     <img src="{{pred}}" style="width: 150px; margin-left: 110px; margin-top: 80px; border: 2px solid black;">
@@ -48,7 +51,7 @@
   <h4 style="color: black; margin-left: 40px;">Preprocessed Image</h4>
     <img src="{{preproc}}" style="width: 150px; margin-left: 50px; margin-top: 80px; border: 2px solid black;">
     {% endif %}
-  </div>
+  </div> {% endcomment %}
 
         <div class = "column">
           {% if no %}
@@ -58,11 +61,137 @@
   </textarea>
   {% endif %}
         </div>
-    </div>
-    </div>
+        </div>
+           
+
+         
   
 
+           <!--h4 style="color: black; margin-left: 60px; ">Cropped Image</h4>
+    <svg class= "rectangle" width="250" height="300">
+      <rect width="250" height="300" 
+  style="fill:rgba(255,255,255,0);stroke-width:5;stroke:rgb(0,0,0)" />
+Sorry, your browser does not support inline SVG.
+</svg>
+  
 
+         <h4 style="color: black; margin-left: 40px;">Preprocessed Image</h4-->
+    <svg class= "rectangle">
+      <rect 
+  style="fill:rgba(255,255,255,0);stroke-width:5;stroke:rgb(0,0,0)" />
+Sorry, your browser does not support inline SVG.
+</svg>
+  
+
+        
+    <h4 class="heading heading1">Owner Details</h4>
+    <textarea id="textar" name="textar" >
+  </textarea>
+         <div class="custom-select">
+  <select>
+    <option value="0">Select Offence</option>
+    <option value="1">Overspeeding</option>
+    <option value="2">Standing beyond zebra crossing</option>
+    <option value="3">Not wearing seat belt</option>
+    <option value="4">License missing </option>
+    <option value="5">RC invalid/missing</option>
+    <option value="6">Insurance invalid/missing</option>
+    <option value="7">PUC invalid/missing</option>
+    <option value="8">Vehicle Fitness not renewed</option>
+    <option value="9">Non obeyance of Traffic Signal</option>
+    <option value="10">Not wearing Seat Belt</option>
+    <option value="11">Drink and Drive</option>
+    
+  </select>
+</div> 
+          <div class="email">
+        <button id="myBtn"  type="button" style=" background: #04AA6D; color: white; margin-bottom: 30px;">Send Email</button>
+          </div>
+          
+    </div>
+    
+    </div>
+
+    <script>
+var x, i, j, l, ll, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script>
 
 </body>
 </html>

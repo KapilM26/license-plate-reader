@@ -32,9 +32,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
 
     #remove after database
-    re_path(r'api/app_alpr/$', views.offender_list),
-
-
+    #re_path(r'api/app_alpr/$', views.offender_list),
 ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

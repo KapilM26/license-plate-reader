@@ -31,21 +31,6 @@ class appView(viewsets.ModelViewSet):
     serializer_class = appSerializer
     queryset = Appdata.objects.all()
 
-@api_view(['GET', 'POST']) #for displaying offender detail
-def data_list(request):
-    if request.method=='GET':
-        data= Appdata.objects.all()
-        serializer = appSerializer(data, many=True)
-        return Response(serializer.data, safe=False)
-
-    elif request.method =="POST":
-        data = JSONParser().parse(request)
-        serializer = appSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)
-
 def registerPage(request): 
     form = CreateUserForm()
 
@@ -67,22 +52,6 @@ def loginPage(request):
     return render(request, 'login.html', context)
 
 #remove after creation of database
-
-@api_view(['GET','POST'])
-def offender_list(request):
-    if request.method == 'GET':
-        data = Appdata.objects.all()
-
-        serializer = appSerializer(data, context = {'request': request}, many = True)
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = appSerializer(data=request.data)
-        if serializer.is_valid:
-            serializer.save()
-            return Response(status=status.HTTP_201_CREATED)
-            
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)@api_view(['PUT', 'DELETE'])
 
 class Index(APIView):
  #for displaying offender detail
@@ -113,11 +82,20 @@ class Index(APIView):
                     'pred':os.path.join(settings.PRED_URL,"pred.png"),
                     'preproc':os.path.join(settings.PREPROC_URL,"preproc.png"),
                     'no':no}
+        #print("This is working")
+        #print(type(no))
+        
+        q=Appdata.objects.filter(vehicleNumber = "MH12QF0598") #replace with 'no'
+        print(q)
+        if not q:
+           print("no element found in dataset")
+        else:
+            print(q[0].name)
+            print(q[0].email)
 
-        no = get_object_or_404(Appdata, vehicleNumber=Appdata.vehicleNumber)
-
-       
-        return JsonResponse(no, safe= False)
+        # print("this is working")
+        # print(type(q))
+        # print(q)
 
         return render(request, self.template_name, context)
     
