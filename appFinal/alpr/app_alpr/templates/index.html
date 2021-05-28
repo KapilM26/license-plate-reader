@@ -6,29 +6,1742 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href={% static "css/theme.css" %}>
+    <!--link rel="stylesheet" href={% static "css/theme.css" %}-->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (min-width: 1201px){
+      body {
+    position: relative; 
+  }
+    .header1{
+        width: 100vw;
+        height: 10vh;
+        font-size: 25px;
+    }
+    .header-text
+    {
+        padding-top:20px;
+    }
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
 
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 550px;
+    border-radius: 5px;
+}
+    .row{
+        margin-left: 60px;
+    }
+    .row1{
+        margin-left: 160px;
+        margin-top: -300px;
+    }
+    .row2{
+        margin-top:-440px;
+    }
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 400px;
+    border-radius: 5px;
+     }
+    .left-space{
+        margin-left: 350px;
+    }
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: 700px;
+    height: 400px;
+    width: 400px;
+    margin-top: 10px;
+    font-size:13px;
+}
+
+    .heading{
+        color: black;
+        margin-left: 200px;
+        margin-top: 30px;
+        font-size: 20px;
+    }
+    .heading1{
+        color: black;
+        margin-left: 800px;
+        margin-top: -380px;
+    }
+    .labla{
+        margin-left: 500px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 30px;
+        margin-left: 400px;
+        width:400px;
+        align-content: center;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: 80px;
+     width:400px;
+    height:400px;
+    border: 3px solid black;
+}
+    .email{
+        margin-left: 500px;
+    }
+}
+@media screen and (min-width: 1001px) and (max-width: 1200px){
+     body {
+    position: relative; 
+  }
+    .header1{
+        width: 100vw;
+        height: 10vh;
+        font-size: 25px;
+    }
+    .header-text
+    {
+        padding-top:40px;
+        font-size:40px;
+    }
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
+
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 500px;
+    border-radius: 5px;
+}
+    .row{
+        margin-left: 60px;
+    }
+     .row1{
+        margin-left: 60px;
+         margin-top: -1000px;
+    }
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 400px;
+    border-radius: 5px;
+     }
+    .left-space{
+        margin-left: 250px;
+    }
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: 500px;
+    height: 350px;
+    width: 300px;
+    margin-top: 10px;
+}
+    .row{
+        margin-left: -100px;
+    }
+    .row1{
+        margin-left: 60px;
+    }
+    .heading{
+        color: black;
+        margin-left: 200px;
+        margin-top: 30px;
+    }
+    .heading1{
+        color: black;
+        margin-left: 600px;
+        margin-top: -380px;
+    }
+    .labla{
+        margin-left: 425px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 30px;
+        margin-left: 350px;
+        width:400px;
+        align-content: center;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: 20px;
+     width:350px;
+    height:350px;
+    border: 3px solid black;
+}
+    .email{
+        margin-left: 300px;
+    }
+}
+
+@media screen and (min-width: 851px) and (max-width: 1000px){
+      body {
+    position: relative; 
+  }
+    .header1{
+        width: 100%;
+        height: 10vh;
+        font-size: 25px;
+    }
+     .header-text
+    {
+        padding-top:40px;
+        
+    }
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
+
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 60px;
+    border-radius: 5px;
+}
+    .row{
+        margin-left: 60px;
+    }
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+     }
+
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: -20px;
+    height: 200px;
+    width: 250px;
+}
+    .row{
+        margin-left: -100px;
+    }
+    .row1{
+        margin-left: 60px;
+    }
+    .heading{
+        color: black;
+        margin-left: 80px;
+        margin-top: 30px;
+    }
+    .labla{
+        margin-left: 0px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-left: 0px;
+        width:200px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: -20px;
+     width:250px;
+    height:250px;
+    border: 3px solid black;
+}
+}
+@media screen and (min-width: 701px) and (max-width: 850px){
+body {
+    position: relative; 
+  }
+    .header1{
+        width: 100%;
+        height: 10vh;
+        font-size: 25px;
+         padding-top: 20px;
+    }
+   
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
+
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 220px;
+    border-radius: 5px;
+}
+
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+     }
+
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: 30px;
+    height: 500px;
+    width: 500px;
+    overflow-x: scroll;
+}
+    .row{
+        margin-left: 100px;
+    }
+    .row1{
+        margin-left: 100px;
+        margin-top: -600px;
+    }
+    .heading{
+        color: black;
+        margin-left: 200px;
+        margin-top: 30px;
+        font-size: 20px;
+    }
+    .labla{
+        margin-left: 150px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-left: 155px;
+        width:200px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: 30px;
+     width:500px;
+    height:500px;
+    border: 3px solid black;
+}
+}
+@media screen and (min-width: 601px) and (max-width: 700px){
+  body {
+    position: relative; 
+  }
+    .header1{
+        width: 100%;
+        height: 10vh;
+        font-size: 17px;
+         padding-top: 20px;
+    }
+   
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
+
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 120px;
+    border-radius: 5px;
+}
+
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+     }
+
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: 0px;
+    height: 350px;
+    width: 350px;
+    overflow-x: scroll;
+}
+    .row{
+        margin-left: 100px;
+    }
+    .row1{
+        margin-left: 100px;
+        margin-top: -470px;
+    }
+    .heading{
+        color: black;
+        margin-left: 100px;
+        margin-top: 30px;
+        font-size: 15px;
+    }
+    .labla{
+        margin-left: 50px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-left: 55px;
+        width:200px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: 0px;
+     width:350px;
+    height:350px;
+    border: 3px solid black;
+}
+   
+}
+@media screen and (min-width: 501px) and (max-width: 600px){
+ body {
+    position: relative; 
+  }
+    .header1{
+        width: 100%;
+        height: 10vh;
+        font-size: 17px;
+         padding-top: 20px;
+    }
+   
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
+
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 120px;
+    border-radius: 5px;
+}
+
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+     }
+
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: 0px;
+    height: 350px;
+    width: 350px;
+    overflow-x: scroll;
+}
+    .row{
+        margin-left: 100px;
+    }
+    .row1{
+        margin-left: 100px;
+        margin-top: -470px;
+    }
+    .heading{
+        color: black;
+        margin-left: 100px;
+        margin-top: 30px;
+        font-size: 15px;
+    }
+    .labla{
+        margin-left: 50px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-left: 55px;
+        width:200px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: 0px;
+     width:350px;
+    height:350px;
+    border: 3px solid black;
+}
+}
+@media screen and (min-width: 401px) and (max-width: 500px){
+    body {
+    position: relative; 
+  }
+    .header1{
+        width: 100%;
+        height: 10vh;
+        font-size: 17px;
+         padding-top: 20px;
+    }
+   
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
+
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 50px;
+    border-radius: 5px;
+}
+
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+     }
+
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: -50px;
+    height: 300px;
+    width: 300px;
+    overflow-x: scroll;
+}
+    .row{
+        margin-left: 100px;
+    }
+    .row1{
+        margin-left: 100px;
+        margin-top: -470px;
+    }
+    .heading{
+        color: black;
+        margin-left: 10px;
+        margin-top: 30px;
+        font-size: 15px;
+    }
+    .labla{
+        margin-left: -20px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-left: -15px;
+        width:200px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: -50px;
+     width:300px;
+    height:300px;
+    border: 3px solid black;
+}
+}
+
+@media screen and (min-width: 331px) and (max-width: 400px){
+      body {
+    position: relative; 
+  }
+    .header1{
+        width: 100%;
+        height: 10vh;
+        font-size: 15px;
+         padding-top: 20px;
+    }
+   
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
+
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+     }
+
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: -50px;
+    height: 250px;
+    width: 250px;
+    overflow-x: scroll;
+    font-size: 12px;
+}
+    .row{
+        margin-left: 100px;
+    }
+    .row1{
+        margin-left: 100px;
+        margin-top: -380px;
+    }
+    .heading{
+        color: black;
+        margin-left: 10px;
+        margin-top: 30px;
+        font-size: 15px;
+    }
+    .labla{
+        margin-left: -50px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background: #04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-left: -45px;
+        width:200px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: -50px;
+     width:250px;
+    height:250px;
+    border: 3px solid black;
+}
+}
+@media screen and (max-width: 330px){
+      body {
+    position: relative; 
+  }
+    .header1{
+        width: 100%;
+        height: 10vh;
+        font-size: 15px;
+        padding-top: 15px;
+    }
+      #section1 
+    {
+        height:100vh;
+        width: 100%;
+        color: #fff;
+    }
+
+#myBtn{
+    background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    align-items: center;
+    margin-left: 220px;
+    border-radius: 5px;
+}
+    .row{
+        margin-left: 60px;
+    }
+    .row1{
+        margin-left: 60px;
+        margin-top: -250px;
+    }
+label{
+       background: #04AA6D;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+     }
+
+
+input[type="file"] {
+    display: none;
+}
+#textar{
+    border: 3px solid black;
+    margin-left: -20px;
+    height: 200px;
+    width: 250px;
+}
+    .row{
+        margin-left: -100px;
+    }
+    .row1{
+        margin-left: 60px;
+    }
+    .heading{
+        color: black;
+        margin-left: 80px;
+        margin-top: 30px;
+    }
+    .labla{
+        margin-left: 150px;
+        font-size: 15px;
+    }
+    .ss{
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        margin-left: -40px;
+    }
+    .button{
+     background:#04AA6D;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 5px;
+}
+    .btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+        margin-left: 170px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+    .custom-select {
+  position: relative;
+  font-family: Arial;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-left: 155px;
+        width:200px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: #04AA6D;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: #04AA6D;
+  top: 7px;
+    margin-bottom: 20px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #04AA6D;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.rectangle{
+    margin-top: 10px;
+    margin-left: -20px;
+     width:250px;
+    height:250px;
+    border: 3px solid black;
+}
+}
   </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <header class ="header1 " style="background: #04AA6D; color: white;">
-    <h3 class="header-text" style="width: 100%;"><center>Automatic License Plate Recognition</center></h3>
+    <h3 class="header-text"><center>Automatic License Plate Recognition</center></h3>
     </header>
 
 
 <div id="section1" class="container">
  
-      <div class = "row1">
+     <div class="row">
           {% comment %} <div class="left-space"> {% endcomment %}
   <form method="POST" enctype="multipart/form-data">{% csrf_token %}
   <label class="labla" style ="background: #04AA6D; color: white;">Capture Image/Choose file
     <input type="file" size="60" name = "img">
     </label> 
+       <div class="custom-select">
     <select name="offence">
       <option value="0">Select Offence</option>
       <option value="Overspeeding">Overspeeding</option>
@@ -42,12 +1755,14 @@
       <option value="Drink and Drive">Drink and Drive</option>
       
     </select>
-          <button id="myBtn" type="submit" style="background: #04AA6D; color: white;">Submit</button>
+      </div>
+   <button id="myBtn" type="submit" style="background: #04AA6D; color: white;">Submit</button>
 </form>
 </div>
+    </div>
 
-<!-- <div class= "row" style="margin-top: 100px;">
-          <div class="column">
+<div class= "row1">
+          <!--div class="column">
     {% if up %}
     <h4 style="color: black; margin-left: 160px;">Input Image</h4>
     <img src="{{up}}" style="width: 400px;  border: 2px solid black;">
@@ -74,13 +1789,14 @@ Sorry, your browser does not support inline SVG.
     {% if up %}
     <image href="{{up}}" style="width: 100%; border: 2px solid black;" preserveAspectRatio="none">
     {% endif %}
-</svg>
+        </image>
+    </svg>
 
 
-        
+      <div class="row2">
     <h4 class="heading heading1">Owner Details</h4>
     
-  <textarea id="textar" name="textar" rows="7" cols="30" style="color: black; font-size: 20px;">
+  <textarea id="textar" name="textar" rows="7" cols="30">
   {% if no %}
     {{no}}
     Name:{{name}}
@@ -89,12 +1805,12 @@ Sorry, your browser does not support inline SVG.
     Email sent!
  {% endif %}
 </textarea>
-         <div class="custom-select">
+          </div>  
+    </div>
 </div> 
-          
-    </div>
     
-    </div>
+    
+
 
     <script>
 var x, i, j, l, ll, selElmnt, a, b, c;
