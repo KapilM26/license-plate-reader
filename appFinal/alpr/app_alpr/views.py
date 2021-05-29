@@ -80,30 +80,22 @@ class Index(APIView):
 
         no = ocr(src_folder=settings.PREPROC_ROOT)
         
-        q=Appdata.objects.filter(vehicleNumber = no.strip()) #replace with 'no'
-        print(q)
+        q=Appdata.objects.filter(vehicleNumber = no.strip()) 
         if not q:
-           print("no element found in dataset")
+           context = {'up':os.path.join(settings.IMAGE_URL,'img.'+str(ext)),
+            'no':no+'\n Not found in database!','name':' --', 'email':' --','offence':request.POST['offence']}
         else:
-            print(q[0].name)
-            print(q[0].email)
-        offence = request.POST['offence']
-        print(offence)
-
-        # print("this is working")
-        # print(type(q))
-        # print(q)
-        context = {'up':os.path.join(settings.IMAGE_URL,'img.'+str(ext)),
-            'no':no,'name':q[0].name, 'email':q[0].email,'offence':offence}
+            offence = request.POST['offence']
+            context = {'up':os.path.join(settings.IMAGE_URL,'img.'+str(ext)),
+                'no':no,'name':q[0].name, 'email':q[0].email,'offence':offence,'sent_flag':1}
         
-
-        send_mail(
-            'Traffic offence',
-            'Booked for '+str(offence),
-            'kmirchandani26@gmail.com',
-            [str(q[0].email).strip()],
-            fail_silently=False
-        )
+            send_mail(
+                'Traffic offence',
+                'Booked for '+str(offence),
+                'kmirchandani26@gmail.com',
+                [str(q[0].email).strip()],
+                fail_silently=False
+            )
 
         return render(request, self.template_name, context)
     

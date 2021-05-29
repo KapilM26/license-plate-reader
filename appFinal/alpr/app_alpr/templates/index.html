@@ -51,8 +51,8 @@
         margin-left: 60px;
     }
     .row1{
-        margin-left: 160px;
-        margin-top: -300px;
+        margin-left: 300px;
+        margin-top: -630px;
     }
     .row2{
         margin-top:-440px;
@@ -1802,7 +1802,9 @@ Sorry, your browser does not support inline SVG.
     Name:{{name}}
     Email:{{email}}
     Offence:{{offence}}
+    {% if sent_flag %}
     Email sent!
+    {% endif %}
  {% endif %}
 </textarea>
           </div>  
