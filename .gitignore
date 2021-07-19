@@ -3,6 +3,7 @@
 *.jpg
 *.tiff
 *.email
+*.jpeg
 __pycache__/
 .vscode/
 .ipynb_checkpoints/
