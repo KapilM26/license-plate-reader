@@ -2,9 +2,9 @@
 *.png
 *.jpg
 *.tiff
-*.email
 *.jpeg
 __pycache__/
 .vscode/
 .ipynb_checkpoints/
 .DS_Store
+email.config
