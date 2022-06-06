@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import sys, os
+import sys
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    
     'app_alpr',
 ]
 
@@ -126,20 +126,24 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL='/media/'
+MEDIA_URL = '/media/'
 
-IMAGE_ROOT = os.path.join(BASE_DIR,'app_alpr','temp_images')
+IMAGE_ROOT = os.path.join(BASE_DIR, 'app_alpr', 'temp_images')
 IMAGE_URL = '/temp_images/'
 
-MODELS_ROOT = os.path.join(BASE_DIR,'models')
+MODELS_ROOT = os.path.join(BASE_DIR, 'models')
 MODELS_URL = '/models/'
 
-PRED_ROOT = os.path.join(BASE_DIR,'app_alpr','preds')
+PRED_ROOT = os.path.join(BASE_DIR, 'app_alpr', 'preds')
 PRED_URL = '/preds/'
 
-PREPROC_ROOT = os.path.join(BASE_DIR,'app_alpr','preproc')
+PREPROC_ROOT = os.path.join(BASE_DIR, 'app_alpr', 'preproc')
 PREPROC_URL = '/preproc/'
 
+os.makedirs(MEDIA_ROOT, exist_ok=True)
+os.makedirs(IMAGE_ROOT, exist_ok=True)
+os.makedirs(PRED_ROOT, exist_ok=True)
+os.makedirs(PREPROC_ROOT, exist_ok=True)
 CORS_ORIGIN_ALLOW_ALL = True
 
 
@@ -147,6 +151,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-with open(os.path.join(BASE_DIR, 'config.email'), 'r') as f:
+with open(os.path.join(BASE_DIR, 'email.config'), 'r') as f:
     EMAIL_HOST_USER = f.readline().strip()
     EMAIL_HOST_PASSWORD = f.readline().strip()
