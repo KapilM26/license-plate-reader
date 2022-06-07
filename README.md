@@ -1,11 +1,21 @@
 # Automatic License Plate Reader Application
-
+This repo contains an implementation of an application which is used for Automatic License Plate reading and offence booking.
 ## Overview
+Automatic License Plate Recognition (ALPR) is the technique of extracting the information from an image or a sequence of images of Vehicle's Number Plate. Considering the scenario of automation and the developments in artificial intelligence, machine learning and deep learning, everyone is trying to switch towards automation. The current system for issuing fines by the transport department is one such scenario where, making the whole process automatic would help save massive amount of time.
+The current model of issuing fines to violators is time consuming and requires a lot of human effort. The photos clicked by the cops are sent to the Regional Transport office for verification and the fines are issued considering the offence registered against the vehicle owner. A feasible way to make this process quicker and more reliable is by reducing the human intervention while carrying out each part of the procedure.
+The proposed web application for automatic license plate recognition aims at reducing the human interference by providing a solution for real time license plate detection and recognition. The details of the owner would be visible on the app and the offence for which the vehicle owner is being booked will be a manual choice. The receipt will be sent directly to the owner by email. 
+It will reduce the chances of false imposition of fines. As it reduces human intervention, the chances of manipulating the amount to be paid by the owner are also less.         
 
 ## Method
+![Block diagram](images/block_diagram.jpeg)
+## App UI
+![Basic UI](images/image38.jpeg)
+![Choose offence and Image](images/image39.jpeg)
+![After submitting image](images/image40.jpeg)
+![After submitting image 2](images/image41.jpeg)
+![Email](images/image42.jpeg)
 
-## Results
-
+For more details, refer to our project report: https://drive.google.com/file/d/1T2CuI0HmKRiUyxGygH9FH6TN2xa3mQjO/view?usp=sharing
 ## Usage
 ### Installation
 ```bash
@@ -40,14 +50,3 @@ You can also run a server on a particular IP address by specifying it (along wit
 ```bash
 python3 manage.py runserver <IP>:<PORT>
 ```
-
-## Ref:
-Pipeline: Object Detection (YOLO) -> Crop & Preprocess -> OCR -> Database Search
-
-
-## To do:
-- [ ] Overview
-- [ ] Method and Block diagram
-- [ ] Results
-- [x] Usage
-- [x] Add pipfile/requirements.txt
