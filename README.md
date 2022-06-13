@@ -19,7 +19,7 @@ For more details, refer to our project report: https://drive.google.com/file/d/1
 ## Usage
 ### Installation
 ```bash
-https://github.com/KapilM26/license-plate-reader.git
+git clone https://github.com/KapilM26/license-plate-reader.git
 cd license-plate-reader
 pip3 install -r requirements.txt
 ```
